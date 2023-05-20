@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace View
+namespace Vista
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Form1 : Form
     {
         public Form1()
         {

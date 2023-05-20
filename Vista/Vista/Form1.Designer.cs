@@ -1,4 +1,4 @@
-﻿namespace View
+﻿namespace Vista
 {
     partial class Form1
     {
