@@ -27,6 +27,9 @@ namespace Vista
             if (emp != null)
             {
                 MessageBox.Show("Bienvenido " + emp.FullName);
+                //FrmPrincipal principal = new FrmPrincipal();
+                //principal.Show();
+                //this.Close();
             }
             else
             {

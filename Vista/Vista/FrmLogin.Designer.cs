@@ -38,7 +38,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(164, 122);
+            this.lblUsuario.Location = new System.Drawing.Point(131, 123);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(56, 20);
             this.lblUsuario.TabIndex = 0;
@@ -46,15 +46,15 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(240, 122);
+            this.txtUsuario.Location = new System.Drawing.Point(193, 120);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(75, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(243, 23);
             this.txtUsuario.TabIndex = 1;
             // 
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Location = new System.Drawing.Point(141, 174);
+            this.lblContrasenia.Location = new System.Drawing.Point(108, 162);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(79, 20);
             this.lblContrasenia.TabIndex = 2;
@@ -62,14 +62,14 @@
             // 
             // txtContrasenia
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(240, 174);
+            this.txtContrasenia.Location = new System.Drawing.Point(193, 162);
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(75, 23);
+            this.txtContrasenia.Size = new System.Drawing.Size(243, 23);
             this.txtContrasenia.TabIndex = 3;
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(239, 277);
+            this.btnIniciar.Location = new System.Drawing.Point(221, 234);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(105, 23);
             this.btnIniciar.TabIndex = 4;
@@ -80,12 +80,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(550, 350);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtContrasenia);
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "FrmLogin";
             this.Text = "Login";
             this.ResumeLayout(false);
