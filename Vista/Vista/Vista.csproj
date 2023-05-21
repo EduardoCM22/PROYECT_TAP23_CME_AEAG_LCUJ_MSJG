@@ -62,6 +62,12 @@
     <Compile Include="FrmCatalogoCategorias.Designer.cs">
       <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCatalogoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCatalogoProductos.Designer.cs">
+      <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCatalogoCategorias.resx">
       <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCatalogoProductos.resx">
+      <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

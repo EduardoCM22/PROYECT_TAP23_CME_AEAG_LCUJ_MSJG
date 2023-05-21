@@ -34,29 +34,34 @@
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(95, 108);
+            this.btnProductos.Location = new System.Drawing.Point(71, 88);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(150, 25);
+            this.btnProductos.Size = new System.Drawing.Size(112, 20);
             this.btnProductos.TabIndex = 0;
             this.btnProductos.Text = "Productos";
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnCategorias
             // 
-            this.btnCategorias.Location = new System.Drawing.Point(271, 108);
+            this.btnCategorias.Location = new System.Drawing.Point(203, 88);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(150, 25);
+            this.btnCategorias.Size = new System.Drawing.Size(112, 20);
             this.btnCategorias.TabIndex = 1;
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.Click += new System.EventHandler(this.btnCatalogoCategorias_Click);
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.btnProductos);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmPrincipal";
+            this.Padding = new System.Windows.Forms.Padding(15, 49, 15, 16);
             this.Text = "Menú";
             this.ResumeLayout(false);
 

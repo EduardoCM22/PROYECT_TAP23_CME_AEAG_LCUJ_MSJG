@@ -23,5 +23,11 @@ namespace Vista
             FrmCatalogoCategorias categorias = new FrmCatalogoCategorias();
             categorias.ShowDialog();
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmCatalogoProductos productos = new FrmCatalogoProductos();
+            productos.ShowDialog();
+        }
     }
 }
