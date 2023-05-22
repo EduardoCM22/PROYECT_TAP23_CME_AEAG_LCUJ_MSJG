@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class FrmCatalogoCategorias
+    partial class FrmReorden
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvCategorias = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
+            this.dgvReorden = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReorden)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvCategorias
+            // dgvReorden
             // 
-            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategorias.Location = new System.Drawing.Point(31, 78);
-            this.dgvCategorias.Name = "dgvCategorias";
-            this.dgvCategorias.RowHeadersWidth = 51;
-            this.dgvCategorias.RowTemplate.Height = 24;
-            this.dgvCategorias.Size = new System.Drawing.Size(738, 345);
-            this.dgvCategorias.TabIndex = 0;
+            this.dgvReorden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReorden.Location = new System.Drawing.Point(39, 79);
+            this.dgvReorden.Name = "dgvReorden";
+            this.dgvReorden.RowHeadersWidth = 51;
+            this.dgvReorden.RowTemplate.Height = 24;
+            this.dgvReorden.Size = new System.Drawing.Size(622, 333);
+            this.dgvReorden.TabIndex = 0;
             // 
-            // FrmCatalogoCategorias
+            // FrmReorden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 550);
-            this.Controls.Add(this.dgvCategorias);
-            this.Name = "FrmCatalogoCategorias";
-            this.Text = "Catálogo De Categorías";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
+            this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.dgvReorden);
+            this.Name = "FrmReorden";
+            this.Text = "Consulta";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReorden)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvCategorias;
+        private System.Windows.Forms.DataGridView dgvReorden;
     }
 }

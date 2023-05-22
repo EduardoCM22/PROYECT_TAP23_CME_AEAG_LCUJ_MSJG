@@ -29,7 +29,6 @@ namespace Datos
             }
             catch (Exception ex)
             {
-
                 return false;
             }
         }

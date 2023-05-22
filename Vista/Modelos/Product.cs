@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    public  class Product
+    public class Product
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
@@ -18,7 +18,7 @@ namespace Modelos
         public int UnitsInStock { get; set; }
         public int ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
-      
+
 
         public Product(int ProductID, string ProductName, int SupplierID, string CompanyName,
            int CategoryID, string CategoryName, double UnitPrice, int UnitsInStock, int ReorderLevel, bool Discontinued)
@@ -33,7 +33,21 @@ namespace Modelos
             this.UnitsInStock = UnitsInStock;
             this.ReorderLevel = ReorderLevel;
             this.Discontinued = Discontinued;
+        }
 
+        public Product(string ProductName, string CompanyName, int ReorderLevel)
+        {
+            this.ProductName = ProductName;
+            this.CompanyName = CompanyName;
+            this.ReorderLevel = ReorderLevel;
+        }
+
+        public Product(int ProductID, String ProductName, int UnitsInStock, int ReorderLevel) 
+        {
+            this.ProductID = ProductID;
+            this.ProductName = ProductName;
+            this.UnitsInStock = UnitsInStock;
+            this.ReorderLevel = ReorderLevel;
         }
     }
 }

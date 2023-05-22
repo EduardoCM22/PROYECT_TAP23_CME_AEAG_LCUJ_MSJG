@@ -1,26 +1,26 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Modelos;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modelos;
 
 namespace Datos
 {
-    public class CategoryDAO
+    public class SupplierDAO
     {
-        public List<Category> obtenerCategorias()
+        public List<Supplier> obtenerCompanias()
         {
-            List<Category> lista = new List<Category>();
+            List<Supplier> lista = new List<Supplier>();
             //Conectarme
             if (Conexion.Conectar())
             {
                 try
                 {
                     //Crear la sentencia a ejecutar (SELECT)
-                    String select = "Select CategoryId, CategoryName, Description from Categories;";
+                    String select = "Select SupplierId, CompanyName from Suppliers;";
                     //Definir un datatable para que sea llenado
                     DataTable dt = new DataTable();
                     //Crear el dataadapter
@@ -34,13 +34,12 @@ namespace Datos
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
                     foreach (DataRow fila in dt.Rows)
                     {
-                        Category categoria = new Category(
+                        Supplier supplier = new Supplier(
                             //int.Parse(fila["Clave"].ToString())
-                            Convert.ToInt32(fila["CategoryId"]),
-                            fila["CategoryName"].ToString(),
-                            fila["Description"].ToString()
+                            Convert.ToInt32(fila["SupplierId"]),
+                            fila["CompanyName"].ToString()
                             );
-                        lista.Add(categoria);
+                        lista.Add(supplier);
                     }
                     return lista;
                 }

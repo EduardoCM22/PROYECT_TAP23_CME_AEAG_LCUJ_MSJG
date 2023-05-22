@@ -15,7 +15,7 @@ namespace Vista
         public FrmPrincipal()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnCatalogoCategorias_Click(object sender, EventArgs e)

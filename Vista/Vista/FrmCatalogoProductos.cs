@@ -36,5 +36,89 @@ namespace Vista
             dgvProductos.Columns["SupplierId"].Visible = false;
             dgvProductos.Columns["CategoryId"].Visible = false;
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmProducto agregar = new FrmProducto();
+
+            agregar.establecerValores(0, "", 0, 0, 0, 0, 0, false);
+            agregar.ShowDialog();
+
+            productos = new ProductDAO().obtenerProductos();
+            dgvProductos.DataSource = productos;
+            this.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            FrmProducto editar = new FrmProducto();
+            DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];
+
+            int productId = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+            string productName = filaSeleccionada.Cells[1].Value.ToString();
+            int supplierId = int.Parse(filaSeleccionada.Cells[2].Value.ToString());
+            int categoryId = int.Parse(filaSeleccionada.Cells[4].Value.ToString());
+            double unitPrice = Convert.ToDouble(filaSeleccionada.Cells[6].Value.ToString());
+            int unitStock = int.Parse(filaSeleccionada.Cells[7].Value.ToString());
+            int reorderLevel = int.Parse(filaSeleccionada.Cells[8].Value.ToString());
+            bool discontinued = Convert.ToBoolean(filaSeleccionada.Cells[9].Value.ToString());
+
+            editar.establecerValores(productId, productName, supplierId,
+                categoryId, unitPrice, unitStock, reorderLevel, discontinued);
+            editar.ShowDialog();
+
+            productos = new ProductDAO().obtenerProductos();
+            dgvProductos.DataSource = productos;
+            this.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];
+            int productId = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+            string productName = filaSeleccionada.Cells[1].Value.ToString();
+            string message = "¿Está seguro que desea eliminar el producto " + productName + " ?";
+            string caption = "Eliminacion de producto";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                int c = new ProductDAO().Eliminar(productId);
+                if (c == 1451)
+                {
+                    MessageBox.Show("No se puede eliminar por que tiene relación con otros elementos.");
+                }
+                else if (c == 0)
+                {
+                    MessageBox.Show("No se pudo realizar la operación.");
+                }
+                else
+                {
+                    MessageBox.Show("Eliminado exitosamente.");
+                }
+            }
+            productos = new ProductDAO().obtenerProductos();
+            dgvProductos.DataSource = productos;
+            this.Show();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            FrmReorden reorden = new FrmReorden();
+            reorden.ShowDialog();
+        }
+
+        private void btnAdquirir_Click(object sender, EventArgs e)
+        {
+            FrmAdquirir adquirir = new FrmAdquirir();
+
+            adquirir.ShowDialog();
+
+            productos = new ProductDAO().obtenerProductos();
+            dgvProductos.DataSource = productos;
+            this.Show();
+        }
     }
 }
