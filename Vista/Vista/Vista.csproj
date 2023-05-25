@@ -98,6 +98,12 @@
     <Compile Include="FrmReorden.Designer.cs">
       <DependentUpon>FrmReorden.cs</DependentUpon>
     </Compile>
+    <Compile Include="Northwind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Northwind.Designer.cs">
+      <DependentUpon>Northwind.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAdquirir.resx">
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReorden.resx">
       <DependentUpon>FrmReorden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Northwind.resx">
+      <DependentUpon>Northwind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

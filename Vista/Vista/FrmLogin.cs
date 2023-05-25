@@ -30,6 +30,8 @@ namespace Vista
                 //FrmPrincipal principal = new FrmPrincipal();
                 //principal.Show();
                 //this.Close();
+                Northwind nort = new Northwind();
+                nort.Show();
             }
             else
             {
