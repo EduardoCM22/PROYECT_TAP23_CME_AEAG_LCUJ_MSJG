@@ -54,5 +54,60 @@ namespace Datos
                 return null;
             }
         }
+       public int agregar(Category c)
+       {
+            if (Conexion.Conectar())
+            {
+                try
+                {
+                    //Crear la sentencia a ejecutar (SELECT)
+                    String select = "insert into categories values(@CategoryId, @CategoryName, @Description)";
+                    MySqlCommand sentencia = new MySqlCommand();
+                    sentencia.CommandText = select;
+                    sentencia.Connection = Conexion.conexion;
+                    sentencia.Parameters.AddWithValue("@CategoryId", c.CategoryId);
+                    sentencia.Parameters.AddWithValue("@CategoryName", c.CategoryName);
+                    sentencia.Parameters.AddWithValue("@Description", c.Description);
+                    int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
+                    return filasAfectadas;
+                }
+                finally
+                {
+                    Conexion.Desconectar();
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+       public int editar(Category c)
+        {
+            if (Conexion.Conectar())
+            {
+                try
+                {
+                    //Crear la sentencia a ejecutar (SELECT)
+                    String select = "update categories set categoryid=@CategoryId, categoryname=@CategoryName," +
+                        "description=@Description where categoryid=@CategoryId";
+                    MySqlCommand sentencia = new MySqlCommand();
+                    sentencia.CommandText = select;
+                    sentencia.Connection = Conexion.conexion;
+                    sentencia.Parameters.AddWithValue("@CategoryId", c.CategoryId);
+                    sentencia.Parameters.AddWithValue("@CategoryName", c.CategoryName);
+                    sentencia.Parameters.AddWithValue("@Description", c.Description);
+                    int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
+                    return filasAfectadas;
+                }
+                finally
+                {
+                    Conexion.Desconectar();
+                }
+            }
+            else
+            {
+                return 0;
+            }
+       }
     }
 }

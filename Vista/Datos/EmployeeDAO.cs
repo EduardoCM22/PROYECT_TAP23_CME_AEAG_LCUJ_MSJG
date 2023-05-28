@@ -37,7 +37,7 @@ namespace Datos
                     sentencia.Parameters.AddWithValue("@password", password);
                     sentencia.Connection = Conexion.conexion;
                     MySqlDataAdapter da = new MySqlDataAdapter(sentencia);
-                    //Llenar el datatable
+                    //Llenar el datatable :)
                     da.Fill(dt);
                     //Revisar si hubo resultados
                     if (dt.Rows.Count > 0)
