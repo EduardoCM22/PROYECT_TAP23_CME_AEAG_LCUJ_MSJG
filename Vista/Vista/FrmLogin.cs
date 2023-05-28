@@ -22,16 +22,13 @@ namespace Vista
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             EmployeeDAO employeeDAO = new EmployeeDAO();
-            Employee emp = employeeDAO.login(txtUsuario.Text, txtContrasenia.Text);
+            Employee employee = employeeDAO.login(txtUsuario.Text, txtContrasenia.Text);
 
-            if (emp != null)
+            if (employee != null)
             {
-                MessageBox.Show("Bienvenido " + emp.FullName);
-                //FrmPrincipal principal = new FrmPrincipal();
-                //principal.Show();
-                //this.Close();
-                Northwind nort = new Northwind();
-                nort.Show();
+                MessageBox.Show("Bienvenido " + employee.FullName);
+                FrmPrincipal principal = new FrmPrincipal(employee);
+                principal.ShowDialog();
             }
             else
             {
