@@ -122,11 +122,5 @@ namespace Vista
             cate.Show();
 
         }
-
-        private void adquirirProductosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAdquirir ad = new FrmAdquirir();
-            ad.Show();
-        }
     }
 }

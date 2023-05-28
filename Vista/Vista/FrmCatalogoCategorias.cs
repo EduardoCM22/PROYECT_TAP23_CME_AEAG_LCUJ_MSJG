@@ -34,5 +34,24 @@ namespace Vista
 
             //dgvCategorias.Columns["CategoryId"].Visible = false;
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmCategoria cat;
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            FrmCategoria cat;
+            DataGridViewRow filaSeleccionada = dgvCategorias.SelectedRows[0];
+
+            int id = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+            string categorieName = filaSeleccionada.Cells[1].Value.ToString();
+            string des = filaSeleccionada.Cells[2].Value.ToString();
+
+            cat= new FrmCategoria(id, categorieName, des);
+            cat.Show(); 
+        }
     }
 }
