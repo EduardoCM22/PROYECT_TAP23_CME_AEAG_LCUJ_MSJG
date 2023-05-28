@@ -17,6 +17,7 @@ namespace Vista
         public Northwind()
         {
             InitializeComponent();
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -120,6 +121,12 @@ namespace Vista
             FrmCatalogoCategorias cate = new FrmCatalogoCategorias();
             cate.Show();
 
+        }
+
+        private void adquirirProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdquirir ad = new FrmAdquirir();
+            ad.Show();
         }
     }
 }

@@ -30,38 +30,49 @@
         {
             this.btnProductos = new MetroFramework.Controls.MetroButton();
             this.btnCategorias = new MetroFramework.Controls.MetroButton();
+            this.btnEmpleados = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(71, 88);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductos.Location = new System.Drawing.Point(95, 108);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(112, 20);
+            this.btnProductos.Size = new System.Drawing.Size(149, 25);
             this.btnProductos.TabIndex = 0;
             this.btnProductos.Text = "Productos";
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnCategorias
             // 
-            this.btnCategorias.Location = new System.Drawing.Point(203, 88);
-            this.btnCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCategorias.Location = new System.Drawing.Point(271, 108);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(112, 20);
+            this.btnCategorias.Size = new System.Drawing.Size(149, 25);
             this.btnCategorias.TabIndex = 1;
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.Click += new System.EventHandler(this.btnCatalogoCategorias_Click);
             // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.Location = new System.Drawing.Point(491, 108);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(75, 23);
+            this.btnEmpleados.TabIndex = 2;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.btnProductos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmPrincipal";
-            this.Padding = new System.Windows.Forms.Padding(15, 49, 15, 16);
+            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
             this.Text = "Menú";
             this.ResumeLayout(false);
 
@@ -71,5 +82,6 @@
 
         private MetroFramework.Controls.MetroButton btnProductos;
         private MetroFramework.Controls.MetroButton btnCategorias;
+        private MetroFramework.Controls.MetroButton btnEmpleados;
     }
 }
