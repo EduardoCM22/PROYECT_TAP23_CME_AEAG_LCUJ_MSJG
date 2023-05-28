@@ -1,5 +1,4 @@
-﻿using Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,26 +12,10 @@ namespace Vista
 {
     public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
     {
-        public FrmPrincipal(Employee empleado)
+        public FrmPrincipal()
         {
             InitializeComponent();
 
-            if (empleado.Title.Equals("Vice President, Sales"))
-            {
-                btnCategorias.Visible = false;
-            }
-            else if (empleado.Title.Equals("Sales Manager"))
-            {
-
-            }
-            else if (empleado.Title.Equals("Sales Representative"))
-            {
-                btnEmpleados.Visible = false;
-            }
-            else
-            {
-
-            }
         }
 
         private void btnCatalogoCategorias_Click(object sender, EventArgs e)
@@ -45,12 +28,6 @@ namespace Vista
         {
             FrmCatalogoProductos productos = new FrmCatalogoProductos();
             productos.ShowDialog();
-        }
-
-        private void btnEmpleados_Click(object sender, EventArgs e)
-        {
-            FrmCatalagoEmpleados empleados = new FrmCatalagoEmpleados();
-            empleados.ShowDialog();
         }
     }
 }

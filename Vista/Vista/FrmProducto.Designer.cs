@@ -46,7 +46,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(183, 82);
+            this.metroLabel1.Location = new System.Drawing.Point(183, 83);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(61, 20);
             this.metroLabel1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(173, 126);
+            this.metroLabel2.Location = new System.Drawing.Point(174, 125);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(70, 20);
             this.metroLabel2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(176, 174);
+            this.metroLabel3.Location = new System.Drawing.Point(176, 173);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(68, 20);
             this.metroLabel3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(144, 226);
+            this.metroLabel4.Location = new System.Drawing.Point(144, 227);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 20);
             this.metroLabel4.TabIndex = 3;
@@ -92,7 +92,6 @@
             // 
             this.cbxDescontinuado.AutoSize = true;
             this.cbxDescontinuado.Location = new System.Drawing.Point(299, 337);
-            this.cbxDescontinuado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDescontinuado.Name = "cbxDescontinuado";
             this.cbxDescontinuado.Size = new System.Drawing.Size(111, 17);
             this.cbxDescontinuado.TabIndex = 5;
@@ -101,8 +100,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(259, 382);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAceptar.Location = new System.Drawing.Point(259, 381);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -111,8 +109,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(365, 382);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(366, 381);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -121,8 +118,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(251, 82);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Location = new System.Drawing.Point(250, 83);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(232, 23);
             this.txtNombre.TabIndex = 8;
@@ -131,8 +127,7 @@
             // 
             this.cmbCompania.FormattingEnabled = true;
             this.cmbCompania.ItemHeight = 24;
-            this.cmbCompania.Location = new System.Drawing.Point(251, 126);
-            this.cmbCompania.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbCompania.Location = new System.Drawing.Point(250, 125);
             this.cmbCompania.Name = "cmbCompania";
             this.cmbCompania.Size = new System.Drawing.Size(232, 30);
             this.cmbCompania.TabIndex = 9;
@@ -141,24 +136,21 @@
             // 
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.ItemHeight = 24;
-            this.cmbCategoria.Location = new System.Drawing.Point(251, 174);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbCategoria.Location = new System.Drawing.Point(250, 173);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(232, 30);
             this.cmbCategoria.TabIndex = 10;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(251, 226);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrecio.Location = new System.Drawing.Point(250, 227);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(232, 23);
             this.txtPrecio.TabIndex = 11;
             // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(251, 283);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStock.Location = new System.Drawing.Point(250, 283);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(232, 23);
             this.txtStock.TabIndex = 12;
@@ -167,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 450);
+            this.ClientSize = new System.Drawing.Size(650, 450);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.cmbCategoria);
@@ -181,9 +173,7 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmProducto";
-            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
             this.Text = "Producto";
             this.ResumeLayout(false);
             this.PerformLayout();
