@@ -20,11 +20,11 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia a ejecutar (SELECT)
-                    String select = "SELECT o.OrderID, e.EmployeeID, " +
-                        "CONCAT(e.FirstName, \" \", e.LastName) EmployeeName, c.CustomerID, " +
-                        "c.CompanyName CustomerName, o.OrderDate, o.Freight " +
-                        "FROM Orders o JOIN Employees e ON e.EmployeeID = o.EmployeeID " +
-                        "JOIN Customers c ON c.CustomerID = o.CustomerID;";
+                    String select = "SELECT o.OrderID, e.EmployeeID, CONCAT(e.FirstName, ' ', e.LastName) EmployeeName, " +
+                        "c.CustomerID, c.CompanyName CustomerName, o.OrderDate, sum(od.UnitPrice*od.Quantity) " +
+                        "Total FROM Orders o JOIN Employees e ON e.EmployeeID = o.EmployeeID " +
+                        "JOIN Customers c ON c.CustomerID = o.CustomerID natural join `order details` od " +
+                        "group by o.OrderID, e.EmployeeID, EmployeeName, c.CustomerID, CustomerName, o.OrderDate;";
                     //Definir un datatable para que sea llenado
                     DataTable dt = new DataTable();
                     //Crear el dataadapter
@@ -48,7 +48,7 @@ namespace Datos
                            fila["CustomerID"].ToString(),
                            fila["CustomerName"].ToString(),
                            fila["OrderDate"].ToString(),
-                           Convert.ToDouble(fila["Freight"])
+                           Convert.ToDouble(fila["Total"])
                            );
                         ;
                         lista.Add(venta);
@@ -107,5 +107,71 @@ namespace Datos
                 return 0;
             }
         }
+
+        public int insertar(Order order)
+        {
+            //Conectarme
+            if (Conexion.Conectar())
+            {
+                try
+                {
+                    //Crear la sentencia a ejecutar (INSERT)
+                    String select = "insert into orders(CustomerID, EmployeeID, OrderDate) " +
+                        "values(@CustomerID, @EmployeeID, current_date()); select last_insert_id()";
+                    MySqlCommand sentencia = new MySqlCommand();
+                    sentencia.CommandText = select;
+                    sentencia.Connection = Conexion.conexion;
+
+                    sentencia.Parameters.AddWithValue("@CustomerID", order.CustomerID);
+                    sentencia.Parameters.AddWithValue("@EmployeeID", order.EmployeeID);
+
+                    //Ejercutar el comando 
+                    int filasAfectadas = Convert.ToInt32(sentencia.ExecuteScalar());
+                    return filasAfectadas;
+                }
+                finally
+                {
+                    Conexion.Desconectar();
+                }
+            }
+            else
+            {
+                //Devolvemos un cero indicando que no se insertó nada
+                return 0;
+            }
+        }
+
+        //public int verificar(int id, int unidades)
+        //{
+        //    //Conectarme
+        //    if (Conexion.Conectar())
+        //    {
+        //        try
+        //        {
+        //            //Crear la sentencia a ejecutar (INSERT)
+        //            String select = "select (UnitsInStock-@Units) from products " +
+        //                "where productid = @ProductID;";
+        //            MySqlCommand sentencia = new MySqlCommand();
+        //            sentencia.CommandText = select;
+        //            sentencia.Connection = Conexion.conexion;
+
+        //            sentencia.Parameters.AddWithValue("@ProductID", id);
+        //            sentencia.Parameters.AddWithValue("@Units", unidades);
+
+        //            //Ejercutar el comando 
+        //            int filasAfectadas = Convert.ToInt32(sentencia.ExecuteScalar());
+        //            return filasAfectadas;
+        //        }
+        //        finally
+        //        {
+        //            Conexion.Desconectar();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        //Devolvemos un cero indicando que no se insertó nada
+        //        return -1;
+        //    }
+        //}
     }
 }

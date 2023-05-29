@@ -308,5 +308,86 @@ namespace Datos
             }
         }
 
+        public List<Product> obtenerNoDescontinuados()
+        {
+            List<Product> lista = new List<Product>();
+            //Conectarme
+            if (Conexion.Conectar())
+            {
+                try
+                {
+                    //Crear la sentencia a ejecutar (UPDATE)
+                    String select = "SELECT * FROM PRODUCTS where discontinued = 0;";
+                    DataTable dt = new DataTable();
+                    MySqlCommand sentencia = new MySqlCommand();
+                    sentencia.CommandText = select;
+                    sentencia.Connection = Conexion.conexion;
+
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = sentencia;
+
+                    //Llenar el datatable
+                    da.Fill(dt);
+                    //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
+                    foreach (DataRow fila in dt.Rows)
+                    {
+                        Product product = new Product(
+                            Convert.ToInt32(fila["ProductId"]),
+                            fila["ProductName"].ToString(),
+                            Convert.ToDouble(fila["UnitPrice"]),
+                            Convert.ToInt32(fila["UnitsInStock"])
+                            );
+                        lista.Add(product);
+                    }
+                    return lista;
+                }
+                finally
+                {
+                    Conexion.Desconectar();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public int actualizar(List<Product> prodAct)
+        {
+            //Conectarme
+            if (Conexion.Conectar())
+            {
+                int filasAfectadas = 0;
+                try
+                {
+                    foreach (Product prod in prodAct)
+                    {
+                        //Crear la sentencia a ejecutar (INSERT)
+                        String select = "update products set UnitsInStock = (UnitsInStock - @Units) " +
+                            "where ProductID = @ProductID;";
+                        MySqlCommand sentencia = new MySqlCommand();
+                        sentencia.CommandText = select;
+                        sentencia.Connection = Conexion.conexion;
+
+                        sentencia.Parameters.AddWithValue("@Units", prod.UnitsInStock);
+                        sentencia.Parameters.AddWithValue("@ProductID", prod.ProductID);
+
+                        //Ejercutar el comando 
+                        filasAfectadas += Convert.ToInt32(sentencia.ExecuteNonQuery());
+                    }
+                    return filasAfectadas;
+                }
+                finally
+                {
+                    Conexion.Desconectar();
+                }
+            }
+            else
+            {
+                //Devolvemos un cero indicando que no se insertó nada
+                return 0;
+            }
+        }
+
     }
 }

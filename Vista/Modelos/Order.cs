@@ -26,5 +26,11 @@ namespace Modelos
             this.OrderDate = orderDate;
             this.Freight = freight;
         }
+
+        public Order(string customerId, int employeeId)
+        {
+            this.CustomerID = customerId;
+            this.EmployeeID = employeeId;
+        }
     }
 }

@@ -18,7 +18,8 @@ namespace Vista
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmPrincipal(new Employee(2, "Fuller", "Andrew", "Vice President, Sales", "98401", 0)));
-            //FrmPrincipal(new Employee(2,"Fuller", "Andrew", "Vice President, Sales", "98401", 0)
+            //new FrmPrincipal(new Employee(2,"Fuller", "Andrew", "Vice President, Sales", "98401", 0))
+            //new FrmVentas(new Employee(2, "Fuller", "Andrew", "Vice President, Sales", "98401", 0))
         }
     }
 }

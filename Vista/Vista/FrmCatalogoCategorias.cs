@@ -31,6 +31,9 @@ namespace Vista
             //Activar la selección por fila en lugar de columna
             dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            dgvCategorias.Columns["CategoryName"].HeaderText = "Categoria";
+            dgvCategorias.Columns["Description"].HeaderText = "Descripción";
+
             dgvCategorias.Columns["CategoryId"].Visible = false;
         }
 

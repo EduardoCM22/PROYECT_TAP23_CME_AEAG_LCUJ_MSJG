@@ -29,6 +29,10 @@ namespace Vista
             //Activar la selección por fila en lugar de columna
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            dgvEmpleados.Columns["FirstName"].HeaderText = "Nombre";
+            dgvEmpleados.Columns["LastName"].HeaderText = "Apellidos";
+            dgvEmpleados.Columns["Title"].HeaderText = "Puesto";
+
             dgvEmpleados.Columns["EmployeeID"].Visible = false;
             dgvEmpleados.Columns["PostalCode"].Visible = false;
             dgvEmpleados.Columns["ReportsTo"].Visible = false;

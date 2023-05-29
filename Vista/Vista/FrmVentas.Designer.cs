@@ -34,14 +34,14 @@
             this.cmbClientes = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.lblClave = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new MetroFramework.Controls.MetroButton();
             this.bntAceptar = new MetroFramework.Controls.MetroButton();
             this.btnEliminar = new MetroFramework.Controls.MetroButton();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.lblCantidad = new MetroFramework.Controls.MetroLabel();
+            this.lblTotal = new MetroFramework.Controls.MetroLabel();
             this.btnCancelar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
@@ -102,15 +102,15 @@
             this.metroLabel3.TabIndex = 10;
             this.metroLabel3.Text = "Productos";
             // 
-            // metroLabel2
+            // lblClave
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(69, 157);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(43, 20);
-            this.metroLabel2.TabIndex = 9;
-            this.metroLabel2.Text = "Clave";
+            this.lblClave.AutoSize = true;
+            this.lblClave.Location = new System.Drawing.Point(69, 157);
+            this.lblClave.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClave.Name = "lblClave";
+            this.lblClave.Size = new System.Drawing.Size(43, 20);
+            this.lblClave.TabIndex = 9;
+            this.lblClave.Text = "Clave";
             // 
             // metroLabel1
             // 
@@ -162,25 +162,29 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // metroLabel6
+            // lblCantidad
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(691, 32);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(63, 20);
-            this.metroLabel6.TabIndex = 21;
-            this.metroLabel6.Text = "Cantidad";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblCantidad.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblCantidad.Location = new System.Drawing.Point(681, 32);
+            this.lblCantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(47, 25);
+            this.lblCantidad.TabIndex = 21;
+            this.lblCantidad.Text = "0.00";
             // 
-            // metroLabel5
+            // lblTotal
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(646, 32);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(37, 20);
-            this.metroLabel5.TabIndex = 20;
-            this.metroLabel5.Text = "Total";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblTotal.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblTotal.Location = new System.Drawing.Point(611, 32);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(64, 25);
+            this.lblTotal.TabIndex = 20;
+            this.lblTotal.Text = "Total :";
             // 
             // btnCancelar
             // 
@@ -196,8 +200,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(810, 650);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.metroLabel6);
-            this.Controls.Add(this.metroLabel5);
+            this.Controls.Add(this.lblCantidad);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.bntAceptar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -208,7 +212,7 @@
             this.Controls.Add(this.cmbClientes);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.lblClave);
             this.Controls.Add(this.metroLabel1);
             this.Name = "FrmVentas";
             this.Text = "Ventas-Nombre Empleado";
@@ -226,14 +230,14 @@
         private MetroFramework.Controls.MetroComboBox cmbClientes;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel lblClave;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.DataGridView dgvVentas;
         private MetroFramework.Controls.MetroButton btnAgregar;
         private MetroFramework.Controls.MetroButton bntAceptar;
         private MetroFramework.Controls.MetroButton btnEliminar;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel lblCantidad;
+        private MetroFramework.Controls.MetroLabel lblTotal;
         private MetroFramework.Controls.MetroButton btnCancelar;
     }
 }
