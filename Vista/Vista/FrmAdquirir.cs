@@ -16,12 +16,12 @@ namespace Vista
     {
 
         private List<Product> productos = new ProductDAO().obtenerAdquirir();
-        ProductDAO p = new ProductDAO();
-        int contFilasModificadas;
+        private ProductDAO p = new ProductDAO();
 
         public FrmAdquirir()
         {
             InitializeComponent();
+
             cmbProducto.DataSource = productos;
             cmbProducto.DisplayMember = "ProductName";
             cmbProducto.ValueMember = "ProductId";
@@ -31,10 +31,12 @@ namespace Vista
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Product product = (Product)cmbProducto.SelectedItem;
+            int contFilasModificadas;
             int unidades;
             if (!int.TryParse(txtCantidad.Text, out unidades))
             {
-                MessageBox.Show("Cantidad Adquirir no valido. Debe ser un número.");
+                MessageBox.Show("Cantidad Adquirir no valido. Debe ser un número.", 
+                    "Ingreso Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -44,17 +46,20 @@ namespace Vista
                     contFilasModificadas = p.adquirir(product);
                     if (contFilasModificadas == 0)
                     {
-                        MessageBox.Show("Error al realizar la operación.");
+                        MessageBox.Show("Error al realizar la operación.", "Adquirir Producto", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Operación realizada exitosamente.");
+                        MessageBox.Show("Operación realizada exitosamente.", "Adquirir Producto", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
                     MessageBox.Show("UnitsInStock rebasa la cantidad máxima de inventario " +
-                        "permitida para ese producto.");
+                        "permitida para ese producto.", "Adquirir Producto", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }

@@ -28,112 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCategoryId = new System.Windows.Forms.TextBox();
-            this.txtCategoryName = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.txtNombre = new MetroFramework.Controls.MetroTextBox();
+            this.txtDescripcion = new MetroFramework.Controls.MetroTextBox();
+            this.btnAceptar = new MetroFramework.Controls.MetroButton();
+            this.btnCancelar = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
-            // txtCategoryId
+            // metroLabel2
             // 
-            this.txtCategoryId.Location = new System.Drawing.Point(402, 99);
-            this.txtCategoryId.Name = "txtCategoryId";
-            this.txtCategoryId.Size = new System.Drawing.Size(100, 26);
-            this.txtCategoryId.TabIndex = 0;
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(161, 138);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(61, 20);
+            this.metroLabel2.TabIndex = 1;
+            this.metroLabel2.Text = "Nombre";
             // 
-            // txtCategoryName
+            // metroLabel3
             // 
-            this.txtCategoryName.Location = new System.Drawing.Point(402, 155);
-            this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(100, 26);
-            this.txtCategoryName.TabIndex = 1;
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(145, 191);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(77, 20);
+            this.metroLabel3.TabIndex = 2;
+            this.metroLabel3.Text = "Descipcion";
             // 
-            // txtDescription
+            // txtNombre
             // 
-            this.txtDescription.Location = new System.Drawing.Point(402, 207);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(100, 26);
-            this.txtDescription.TabIndex = 2;
+            this.txtNombre.Location = new System.Drawing.Point(228, 138);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(230, 30);
+            this.txtNombre.TabIndex = 4;
             // 
-            // label1
+            // txtDescripcion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(212, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "CategoryId";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 155);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "CategoryName";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(212, 213);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Description";
+            this.txtDescripcion.Location = new System.Drawing.Point(228, 191);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(230, 30);
+            this.txtDescripcion.TabIndex = 5;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(224, 316);
+            this.btnAceptar.Location = new System.Drawing.Point(227, 281);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(120, 41);
+            this.btnAceptar.Size = new System.Drawing.Size(100, 30);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(402, 316);
+            this.btnCancelar.Location = new System.Drawing.Point(344, 281);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(120, 41);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 30);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(650, 450);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.txtCategoryName);
-            this.Controls.Add(this.txtCategoryId);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroLabel2);
             this.Name = "FrmCategoria";
-            this.Text = "FrmCategoria";
+            this.Text = "Categoría";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCategoryId;
-        private System.Windows.Forms.TextBox txtCategoryName;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroTextBox txtNombre;
+        private MetroFramework.Controls.MetroTextBox txtDescripcion;
+        private MetroFramework.Controls.MetroButton btnAceptar;
+        private MetroFramework.Controls.MetroButton btnCancelar;
     }
 }

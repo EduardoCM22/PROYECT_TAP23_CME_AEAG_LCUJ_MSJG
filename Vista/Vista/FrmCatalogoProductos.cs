@@ -18,9 +18,10 @@ namespace Vista
         public FrmCatalogoProductos()
         {
             InitializeComponent();
-            Conexion con = new Conexion();
 
+            Conexion con = new Conexion();
             /*MessageBox.Show(con.Conectar()+"");*/
+
             productos = new ProductDAO().obtenerProductos();
 
             dgvProductos.DataSource = productos;
@@ -33,6 +34,7 @@ namespace Vista
             //Activar la selección por fila en lugar de columna
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            dgvProductos.Columns["ProductID"].Visible = false;
             dgvProductos.Columns["SupplierId"].Visible = false;
             dgvProductos.Columns["CategoryId"].Visible = false;
         }
@@ -75,10 +77,12 @@ namespace Vista
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DataGridViewRow filaSeleccionada = dgvProductos.SelectedRows[0];
+
             int productId = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
             string productName = filaSeleccionada.Cells[1].Value.ToString();
-            string message = "¿Está seguro que desea eliminar el producto " + productName + " ?";
-            string caption = "Eliminacion de producto";
+
+            string message = "¿Está seguro que desea eliminar el producto " + productName + "?";
+            string caption = "Eliminación Producto.";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
@@ -88,15 +92,18 @@ namespace Vista
                 int c = new ProductDAO().Eliminar(productId);
                 if (c == 1451)
                 {
-                    MessageBox.Show("No se puede eliminar por que tiene relación con otros elementos.");
+                    MessageBox.Show("No se puede eliminar por que tiene relación con otros elementos.", 
+                        caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (c == 0)
                 {
-                    MessageBox.Show("No se pudo realizar la operación.");
+                    MessageBox.Show("No se pudo realizar la operación.", caption, MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Eliminado exitosamente.");
+                    MessageBox.Show("Eliminado exitosamente.", caption, MessageBoxButtons.OK, 
+                        MessageBoxIcon.Information);
                 }
             }
             productos = new ProductDAO().obtenerProductos();
@@ -108,17 +115,6 @@ namespace Vista
         {
             FrmReorden reorden = new FrmReorden();
             reorden.ShowDialog();
-        }
-
-        private void btnAdquirir_Click(object sender, EventArgs e)
-        {
-            FrmAdquirir adquirir = new FrmAdquirir();
-
-            adquirir.ShowDialog();
-
-            productos = new ProductDAO().obtenerProductos();
-            dgvProductos.DataSource = productos;
-            this.Show();
         }
     }
 }

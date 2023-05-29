@@ -23,7 +23,9 @@ namespace Vista
         public FrmEmpleado()
         {
             InitializeComponent();
+
             cmbPuesto.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cmbReporta.DataSource = empleados;
             cmbReporta.DisplayMember = "FullName";
             cmbReporta.ValueMember = "EmployeeID";
@@ -53,7 +55,7 @@ namespace Vista
             if (empId == 0)
             {
                 employee = new Employee(0, txtNombre.Text, txtApellidos.Text, cmbPuesto.SelectedItem.ToString(),
-                    txtPostal.Text, int.Parse(cmbReporta.SelectedValue.ToString()));
+                txtPostal.Text, int.Parse(cmbReporta.SelectedValue.ToString()));
                 contFilasModificadas = empDAO.agregar(employee);
             }
             else
@@ -64,11 +66,13 @@ namespace Vista
             }
             if (contFilasModificadas == 0)
             {
-                MessageBox.Show("Error al realizar la operación.");
+                MessageBox.Show("Error al realizar la operación.", "Agregar/Editar Empleado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Operación realizada exitosamente.");
+                MessageBox.Show("Operación realizada exitosamente.", "Agregar/Editar Empleado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
 

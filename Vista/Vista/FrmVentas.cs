@@ -1,4 +1,5 @@
 ﻿using Datos;
+using MetroFramework.Forms;
 using Modelos;
 using System;
 using System.Collections.Generic;
@@ -14,60 +15,54 @@ namespace Vista
 {
     public partial class FrmVentas : MetroFramework.Forms.MetroForm
     {
+        private List<Customer> customers = new CustomerDAO().obtenerCustomers();
+        private List<Product> products = new ProductDAO().obtenerProductos();
+        private List<OrderDetails> orderDetails = new List<OrderDetails>();
 
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> products = new List<Product>();
-        CustomerDAO customersDAO = new CustomerDAO();
-        List<Customer> customers = new List<Customer>();
-
-        List<int> unitsID = new List<int>();
-        List<int> productsID = new List<int>();
-        
-        
-        Employee empleado;
-
-        public FrmVentas(Employee value)
+        public FrmVentas(Employee employee)
         {
             InitializeComponent();
-            InitializeComponent();
-            dgvVentas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
-            empleado = value;
-            this.Text = "Ventas de " + empleado.FullName;
-            products = productDAO.obtenerProductos();
-            foreach (Product product in products)
-            {
-                cmbProductos.Items.Add(product.ProductName);
-            }
-            customers = customersDAO.GetAllCustomers();
-            foreach (Customer customer in customers)
-            {
-                cmbClientes.Items.Add(customer.CompanyName);
-            }
+            //Desactivar la adición, eliminación y edición el el gridview
+            dgvVentas.AllowUserToAddRows = false;
+            dgvVentas.AllowUserToDeleteRows = false;
+            dgvVentas.EditMode = DataGridViewEditMode.EditProgrammatically;
+            //Activar la selección por fila en lugar de columna
+            dgvVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            this.Text = "Ventas-" + employee.FullName;
+
+            cmbClientes.DataSource = customers;
+            cmbClientes.DisplayMember = "CompanyName";
+            cmbClientes.ValueMember = "CustomerID";
+
+            cmbProductos.DataSource = products;
+            cmbProductos.DisplayMember = "ProductName";
+            cmbProductos.ValueMember = "ProductID";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            foreach (Product product in products)
+            int unidades;
+            if (int.TryParse(txtUnidades.Text, out unidades))
             {
-                if (product.ProductName.Equals(cmbProductos.Text))
+                if (unidades != 0)
                 {
-                    int units = Convert.ToInt32(txtUnidades.Text);
-                    if (units <= 0)
-                    {
-                        //MetroMessageBox.Show(this, "Debe haber al menos una unidad", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
-                    }
-                    else
-                    {
-                        productsID.Add(product.ProductID);
-                        unitsID.Add(units);
-                        dgvVentas.Rows.Add(product.ProductName, product.UnitPrice, units, (units * product.UnitPrice));
-                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Unidades no validas. Debe ser un número mayor a cero.", "Ingreso Datos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else
+            {
+                MessageBox.Show("Unidades no validas. Debe ser un número mayor a cero.", "Ingreso Datos",
+                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvVentas.SelectedRows.Count > 0)
             {
@@ -81,43 +76,12 @@ namespace Vista
 
         private void bntAceptar_Click(object sender, EventArgs e)
         {
-            OrderDetailsDAO orderDetailsDAO = new OrderDetailsDAO();
-            int edo = orderDetailsDAO.sale(empleado.EmployeeId, productsID, unitsID);
-            if (edo == 1)
-            {
-                Console.WriteLine("Venta con varios productos agregada con éxito");
-            }
-            else if (edo == 0)
-            {
-                Console.WriteLine("Error al agregar la venta con varios productos");
-            }
-            else
-            {
-                Console.WriteLine("Error en la conexion");
-            }
+
         }
 
-        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            else
-            {
-                if (e.KeyChar != '\b')
-                {
-                    int index = Convert.ToInt32(txtClave.Text + e.KeyChar.ToString());
-                    try
-                    {
-                        cmbProductos.SelectedIndex = index;
-                    }
-                    catch (Exception)
-                    {
-                        e.Handled = true;
-                    }
-                }
-            }
+            this.Dispose();
         }
     }
 }

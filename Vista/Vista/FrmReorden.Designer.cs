@@ -35,17 +35,16 @@
             // dgvReorden
             // 
             this.dgvReorden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReorden.Location = new System.Drawing.Point(39, 79);
+            this.dgvReorden.Location = new System.Drawing.Point(80, 90);
             this.dgvReorden.Name = "dgvReorden";
             this.dgvReorden.RowHeadersWidth = 51;
             this.dgvReorden.RowTemplate.Height = 24;
-            this.dgvReorden.Size = new System.Drawing.Size(622, 333);
+            this.dgvReorden.Size = new System.Drawing.Size(550, 300);
             this.dgvReorden.TabIndex = 0;
             // 
             // FrmReorden
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(700, 450);
             this.Controls.Add(this.dgvReorden);
             this.Name = "FrmReorden";

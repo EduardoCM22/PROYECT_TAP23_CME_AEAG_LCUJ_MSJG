@@ -27,8 +27,10 @@ namespace Datos
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = sentencia;
+
                     //Llenar el datatable
                     da.Fill(dt);
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista

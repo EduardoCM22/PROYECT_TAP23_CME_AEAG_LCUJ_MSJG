@@ -80,6 +80,24 @@
     <Compile Include="FrmCatalogoProductos.Designer.cs">
       <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCatalogoVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCatalogoVentas.Designer.cs">
+      <DependentUpon>FrmCatalogoVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpleado.Designer.cs">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,23 +122,11 @@
     <Compile Include="FrmReorden.Designer.cs">
       <DependentUpon>FrmReorden.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCatalogoVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCatalogoVentas.Designer.cs">
-      <DependentUpon>FrmCatalogoVentas.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Northwind.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Northwind.Designer.cs">
-      <DependentUpon>Northwind.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +142,15 @@
     <EmbeddedResource Include="FrmCatalogoProductos.resx">
       <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCatalogoVentas.resx">
+      <DependentUpon>FrmCatalogoVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpleado.resx">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,14 +163,8 @@
     <EmbeddedResource Include="FrmReorden.resx">
       <DependentUpon>FrmReorden.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCatalogoVentas.resx">
-      <DependentUpon>FrmCatalogoVentas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Northwind.resx">
-      <DependentUpon>Northwind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

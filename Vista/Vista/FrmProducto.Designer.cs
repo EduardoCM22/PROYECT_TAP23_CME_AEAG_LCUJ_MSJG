@@ -46,7 +46,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(183, 82);
+            this.metroLabel1.Location = new System.Drawing.Point(178, 82);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(61, 20);
             this.metroLabel1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(173, 126);
+            this.metroLabel2.Location = new System.Drawing.Point(168, 126);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(70, 20);
             this.metroLabel2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(176, 174);
+            this.metroLabel3.Location = new System.Drawing.Point(171, 174);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(68, 20);
             this.metroLabel3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(144, 226);
+            this.metroLabel4.Location = new System.Drawing.Point(139, 226);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 20);
             this.metroLabel4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(140, 283);
+            this.metroLabel5.Location = new System.Drawing.Point(135, 283);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(104, 20);
             this.metroLabel5.TabIndex = 4;
@@ -91,83 +91,83 @@
             // cbxDescontinuado
             // 
             this.cbxDescontinuado.AutoSize = true;
-            this.cbxDescontinuado.Location = new System.Drawing.Point(299, 337);
+            this.cbxDescontinuado.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.cbxDescontinuado.Location = new System.Drawing.Point(287, 337);
             this.cbxDescontinuado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDescontinuado.Name = "cbxDescontinuado";
-            this.cbxDescontinuado.Size = new System.Drawing.Size(111, 17);
+            this.cbxDescontinuado.Size = new System.Drawing.Size(125, 20);
             this.cbxDescontinuado.TabIndex = 5;
             this.cbxDescontinuado.Text = "Descontinuado";
             this.cbxDescontinuado.UseVisualStyleBackColor = true;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(259, 382);
+            this.btnAceptar.Location = new System.Drawing.Point(239, 379);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(100, 30);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(365, 382);
+            this.btnCancelar.Location = new System.Drawing.Point(361, 379);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 30);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(251, 82);
+            this.txtNombre.Location = new System.Drawing.Point(246, 82);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(232, 23);
+            this.txtNombre.Size = new System.Drawing.Size(230, 30);
             this.txtNombre.TabIndex = 8;
             // 
             // cmbCompania
             // 
             this.cmbCompania.FormattingEnabled = true;
             this.cmbCompania.ItemHeight = 24;
-            this.cmbCompania.Location = new System.Drawing.Point(251, 126);
+            this.cmbCompania.Location = new System.Drawing.Point(246, 126);
             this.cmbCompania.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCompania.Name = "cmbCompania";
-            this.cmbCompania.Size = new System.Drawing.Size(232, 30);
+            this.cmbCompania.Size = new System.Drawing.Size(230, 30);
             this.cmbCompania.TabIndex = 9;
             // 
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.ItemHeight = 24;
-            this.cmbCategoria.Location = new System.Drawing.Point(251, 174);
+            this.cmbCategoria.Location = new System.Drawing.Point(246, 174);
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(232, 30);
+            this.cmbCategoria.Size = new System.Drawing.Size(230, 30);
             this.cmbCategoria.TabIndex = 10;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(251, 226);
+            this.txtPrecio.Location = new System.Drawing.Point(246, 226);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(232, 23);
+            this.txtPrecio.Size = new System.Drawing.Size(230, 30);
             this.txtPrecio.TabIndex = 11;
             // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(251, 283);
+            this.txtStock.Location = new System.Drawing.Point(246, 283);
             this.txtStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(232, 23);
+            this.txtStock.Size = new System.Drawing.Size(230, 30);
             this.txtStock.TabIndex = 12;
             // 
             // FrmProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 450);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(650, 450);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.cmbCategoria);

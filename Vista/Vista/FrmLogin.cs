@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Datos;
+using MetroFramework.Forms;
 using Modelos;
-//:)
+
 namespace Vista
 {
     public partial class FrmLogin : MetroFramework.Forms.MetroForm
@@ -26,13 +27,17 @@ namespace Vista
 
             if (employee != null)
             {
-                MessageBox.Show("Bienvenido " + employee.FullName);
+                MessageBox.Show("Bienvenido " + employee.FullName, "Inicio Sesión", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmPrincipal principal = new FrmPrincipal(employee);
+                this.Visible = false;
                 principal.ShowDialog();
+                this.Dispose();
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos");
+                MessageBox.Show("Usuario y/o contraseña incorrectos", "Inicio Sesión", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

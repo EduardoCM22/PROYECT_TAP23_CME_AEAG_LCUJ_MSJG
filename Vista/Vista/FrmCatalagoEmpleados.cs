@@ -18,14 +18,17 @@ namespace Vista
         public FrmCatalagoEmpleados()
         {
             InitializeComponent();
+
             Empleados = new EmployeeDAO().obtenerEmpleados();
             dgvEmpleados.DataSource = Empleados;
+
             //Desactivar la adición, eliminación y edición el el gridview
             dgvEmpleados.AllowUserToAddRows = false;
             dgvEmpleados.AllowUserToDeleteRows = false;
             dgvEmpleados.EditMode = DataGridViewEditMode.EditProgrammatically;
             //Activar la selección por fila en lugar de columna
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             dgvEmpleados.Columns["EmployeeID"].Visible = false;
             dgvEmpleados.Columns["PostalCode"].Visible = false;
             dgvEmpleados.Columns["ReportsTo"].Visible = false;
@@ -67,10 +70,12 @@ namespace Vista
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DataGridViewRow filaSeleccionada = dgvEmpleados.SelectedRows[0];
+
             int employeeId = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
-            string fullName = filaSeleccionada.Cells[1].Value.ToString() + filaSeleccionada.Cells[2].Value.ToString();
-            string message = "¿Está seguro que desea eliminar el producto " + fullName + " ?";
-            string caption = "Eliminacion de producto";
+            string fullName = filaSeleccionada.Cells[1].Value.ToString() + " " + filaSeleccionada.Cells[2].Value.ToString();
+
+            string message = "¿Está seguro que desea eliminar al empleado " + fullName + "?";
+            string caption = "Eliminación Empleado";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
@@ -80,15 +85,18 @@ namespace Vista
                 int c = new EmployeeDAO().Eliminar(employeeId);
                 if (c == 1451)
                 {
-                    MessageBox.Show("No se puede eliminar por que tiene relación con otros elementos.");
+                    MessageBox.Show("No se puede eliminar por que tiene relación con otros elementos.",
+                        caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (c == 0)
                 {
-                    MessageBox.Show("No se pudo realizar la operación.");
+                    MessageBox.Show("No se pudo realizar la operación.", caption, 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Eliminado exitosamente.");
+                    MessageBox.Show("Eliminado exitosamente.", caption,
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             Empleados = new EmployeeDAO().obtenerEmpleados();

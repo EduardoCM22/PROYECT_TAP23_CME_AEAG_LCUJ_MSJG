@@ -39,16 +39,16 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(171, 166);
+            this.metroLabel1.Location = new System.Drawing.Point(159, 166);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(61, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(71, 20);
             this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Nombre";
+            this.metroLabel1.Text = "Productos";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(169, 221);
+            this.metroLabel2.Location = new System.Drawing.Point(167, 221);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(63, 20);
             this.metroLabel2.TabIndex = 1;
@@ -58,40 +58,39 @@
             // 
             this.cmbProducto.FormattingEnabled = true;
             this.cmbProducto.ItemHeight = 24;
-            this.cmbProducto.Location = new System.Drawing.Point(238, 166);
+            this.cmbProducto.Location = new System.Drawing.Point(236, 166);
             this.cmbProducto.Name = "cmbProducto";
-            this.cmbProducto.Size = new System.Drawing.Size(232, 30);
+            this.cmbProducto.Size = new System.Drawing.Size(230, 30);
             this.cmbProducto.TabIndex = 2;
             // 
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(238, 221);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(232, 23);
+            this.txtCantidad.Size = new System.Drawing.Size(230, 30);
             this.txtCantidad.TabIndex = 3;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(247, 307);
+            this.btnAceptar.Location = new System.Drawing.Point(236, 299);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(100, 30);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(366, 307);
+            this.btnCancelar.Location = new System.Drawing.Point(357, 299);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 30);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmAdquirir
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(650, 450);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -100,7 +99,7 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.Name = "FrmAdquirir";
-            this.Text = "Adquirir Inventario";
+            this.Text = "Adquisición";
             this.ResumeLayout(false);
             this.PerformLayout();
 

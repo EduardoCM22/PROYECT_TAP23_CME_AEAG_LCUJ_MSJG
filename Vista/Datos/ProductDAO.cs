@@ -20,15 +20,18 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia select
-                    String select = "select ProductID,ProductName,P.SupplierID,S.CompanyName,P.CategoryID,C.CategoryName,UnitPrice,UnitsInStock, ReorderLevel,Discontinued " +
+                    String select = "select ProductID, ProductName, P.SupplierID, S.CompanyName, " +
+                        "P.CategoryID, C.CategoryName, UnitPrice,UnitsInStock, ReorderLevel, Discontinued " +
                         "from products P,suppliers S,categories C " +
                         "where S.SupplierID = P.SupplierID and C.CategoryID = P.CategoryID;";
                     DataTable dt = new DataTable();
                     MySqlCommand sentencia = new MySqlCommand();
+
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = sentencia;
+
                     //Llenar el datatable
                     da.Fill(dt);
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
@@ -48,7 +51,6 @@ namespace Datos
                             );
                         lista.Add(categoria);
                     }
-
                     return lista;
                 }
                 finally
@@ -62,7 +64,7 @@ namespace Datos
             }
         }
 
-        public int agregar(Product prod)
+        public int agregar(Product product)
         {
             //Conectarme
             if (Conexion.Conectar())
@@ -70,18 +72,20 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia a ejecutar (INSERT)
-                    String select = "INSERT INTO products (ProductName, SupplierID, CategoryID, UnitPrice, UnitsInStock, Discontinued) " +
-                       "VALUES (@ProductName, @SupplierID, @CategoryID, @UnitPrice, @UnitsInStock, @Discontinued)";
+                    String select = "INSERT INTO products (ProductName, SupplierID, CategoryID, " +
+                        "UnitPrice, UnitsInStock, Discontinued) VALUES (@ProductName, " +
+                        "@SupplierID, @CategoryID, @UnitPrice, @UnitsInStock, @Discontinued)";
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
 
-                    sentencia.Parameters.AddWithValue("@ProductName", prod.ProductName);
-                    sentencia.Parameters.AddWithValue("@SupplierID", prod.SupplierID); // ID del proveedor
-                    sentencia.Parameters.AddWithValue("@CategoryID", prod.CategoryID); // ID de la categoría
-                    sentencia.Parameters.AddWithValue("@UnitPrice", prod.UnitPrice);
-                    sentencia.Parameters.AddWithValue("@UnitsInStock", prod.UnitsInStock);
-                    sentencia.Parameters.AddWithValue("@Discontinued", prod.Discontinued);
+                    sentencia.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    sentencia.Parameters.AddWithValue("@SupplierID", product.SupplierID); // ID del proveedor
+                    sentencia.Parameters.AddWithValue("@CategoryID", product.CategoryID); // ID de la categoría
+                    sentencia.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                    sentencia.Parameters.AddWithValue("@UnitsInStock", product.UnitsInStock);
+                    sentencia.Parameters.AddWithValue("@Discontinued", product.Discontinued);
+
                     //Ejercutar el comando 
                     int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
                     return filasAfectadas;
@@ -98,7 +102,7 @@ namespace Datos
             }
         }
 
-        public int editar(Product prod)
+        public int editar(Product product)
         {
             //Conectarme
             if (Conexion.Conectar())
@@ -106,19 +110,22 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia a ejecutar (UPDATE)
-                    String select = "UPDATE products SET ProductName = @ProductName, SupplierID = @SupplierID, CategoryID = @CategoryID, " +
-                       "UnitPrice = @UnitPrice, UnitsInStock = @UnitsInStock, Discontinued = @Discontinued " +
+                    String select = "UPDATE products SET ProductName = @ProductName, " +
+                        "SupplierID = @SupplierID, CategoryID = @CategoryID, UnitPrice = @UnitPrice, " +
+                        "UnitsInStock = @UnitsInStock, Discontinued = @Discontinued " +
                        "WHERE ProductID = @ProductID";
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
-                    sentencia.Parameters.AddWithValue("@ProductName", prod.ProductName);
-                    sentencia.Parameters.AddWithValue("@SupplierID", prod.SupplierID); // ID del proveedor
-                    sentencia.Parameters.AddWithValue("@CategoryID", prod.CategoryID); // ID de la categoría
-                    sentencia.Parameters.AddWithValue("@UnitPrice", prod.UnitPrice);
-                    sentencia.Parameters.AddWithValue("@UnitsInStock", prod.UnitsInStock);
-                    sentencia.Parameters.AddWithValue("@Discontinued", prod.Discontinued);
-                    sentencia.Parameters.AddWithValue("@ProductID", prod.ProductID); // ID del producto a editar
+
+                    sentencia.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    sentencia.Parameters.AddWithValue("@SupplierID", product.SupplierID); // ID del proveedor
+                    sentencia.Parameters.AddWithValue("@CategoryID", product.CategoryID); // ID de la categoría
+                    sentencia.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                    sentencia.Parameters.AddWithValue("@UnitsInStock", product.UnitsInStock);
+                    sentencia.Parameters.AddWithValue("@Discontinued", product.Discontinued);
+                    sentencia.Parameters.AddWithValue("@ProductID", product.ProductID); // ID del producto a editar
+
                     //Ejercutar el comando 
                     int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
                     return filasAfectadas;
@@ -135,7 +142,7 @@ namespace Datos
             }
         }
 
-        public int Eliminar(int id)
+        public int Eliminar(int productId)
         {
             //Conectarme
             if (Conexion.Conectar())
@@ -147,7 +154,9 @@ namespace Datos
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
-                    sentencia.Parameters.AddWithValue("@ProductId", id);
+
+                    sentencia.Parameters.AddWithValue("@ProductId", productId);
+
                     //Ejercutar el comando 
                     int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
                     return filasAfectadas;
@@ -184,14 +193,19 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia select
-                    String select = "SELECT p.ProductName, s.CompanyName, CASE WHEN (p.ReorderLevel - p.UnitsInStock) < 0 THEN 0 ELSE (p.ReorderLevel - p.UnitsInStock) END AS Unidades " +
-                        "FROM Products p JOIN Suppliers s ON p.SupplierID = s.SupplierID WHERE p.Discontinued = 0;";
+                    String select = "SELECT p.ProductName, s.CompanyName, " +
+                        "CASE WHEN (p.ReorderLevel - p.UnitsInStock) < 0 THEN 0 " +
+                        "ELSE (p.ReorderLevel - p.UnitsInStock) END AS Unidades " +
+                        "FROM Products p JOIN Suppliers s ON p.SupplierID = s.SupplierID " +
+                        "WHERE p.Discontinued = 0;";
                     DataTable dt = new DataTable();
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = sentencia;
+
                     //Llenar el datatable
                     da.Fill(dt);
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
@@ -204,7 +218,6 @@ namespace Datos
                             );
                         lista.Add(product);
                     }
-
                     return lista;
                 }
                 finally
@@ -232,8 +245,10 @@ namespace Datos
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = sentencia;
+
                     //Llenar el datatable
                     da.Fill(dt);
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
@@ -268,12 +283,15 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia a ejecutar (UPDATE)
-                    String select = "UPDATE products SET UnitsInStock = @UnitsInStock WHERE ProductID = @ProductID";
+                    String select = "UPDATE products SET UnitsInStock = @UnitsInStock " +
+                        "WHERE ProductID = @ProductID";
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     sentencia.Parameters.AddWithValue("@UnitsInStock", prod.UnitsInStock);
                     sentencia.Parameters.AddWithValue("@ProductID", prod.ProductID); // ID del producto a editar
+
                     //Ejercutar el comando 
                     int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
                     return filasAfectadas;

@@ -20,30 +20,29 @@ namespace Datos
             {
                 try
                 {
-                    //Crear la sentencia a ejecutar (SELECT)
-                    //SENTENCIA VULNERABLE A ATAQUE POR INYECCIÓN SQL
-                    //EVITAR A TODA COSTA CONCATENAR VALORES STRING
-                    //String select = @"SELECT EmployeeId, FirstName, LastName, Title
-                    //    FROM Employees
-                    //    WHERE UserName='"+usuario+"' AND Password='"+password+"'";
-                    String select = "select EmployeeID, FirstName, LastName, Title, PostalCode, ReportsTo from Employees " +
+                    //Crear la sentencia a ejecutar (select)
+                    String select = "select EmployeeID, FirstName, LastName, Title, " +
+                        "PostalCode, ReportsTo from Employees " +
                         "where UserName=@usuario and Password=@password";
                     //Definir un datatable para que sea llenado
                     DataTable dt = new DataTable();
                     //Crear el dataadapter
                     MySqlCommand sentencia = new MySqlCommand(select);
+
                     //Asignar los parámetros
                     sentencia.Parameters.AddWithValue("@usuario", usuario);
                     sentencia.Parameters.AddWithValue("@password", password);
+
                     sentencia.Connection = Conexion.conexion;
                     MySqlDataAdapter da = new MySqlDataAdapter(sentencia);
-                    //Llenar el datatable :)
+
+                    //Llenar el datatable
                     da.Fill(dt);
                     //Revisar si hubo resultados
                     if (dt.Rows.Count > 0)
                     {
                         DataRow fila = dt.Rows[0];
-                        try
+                        if (Convert.IsDBNull(fila["ReportsTo"]))
                         {
                             employee = new Employee(
                             Convert.ToInt32(fila["EmployeeId"]),
@@ -51,10 +50,9 @@ namespace Datos
                             fila["LastName"].ToString(),
                             fila["Title"].ToString(),
                             fila["PostalCode"].ToString(),
-                            Convert.ToInt32(fila["ReportsTo"])
-                            );
+                            0);
                         }
-                        catch
+                        else
                         {
                             employee = new Employee(
                             Convert.ToInt32(fila["EmployeeId"]),
@@ -62,8 +60,7 @@ namespace Datos
                             fila["LastName"].ToString(),
                             fila["Title"].ToString(),
                             fila["PostalCode"].ToString(),
-                            0
-                            );
+                            Convert.ToInt32(fila["ReportsTo"]));
                         }
                     }
                     return employee;
@@ -77,8 +74,8 @@ namespace Datos
             {
                 return null;
             }
-
         }
+
         public List<Employee> obtenerEmpleados()
         {
             List<Employee> lista = new List<Employee>();
@@ -88,13 +85,16 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia select
-                    String select = "select EmployeeID, FirstName, LastName, Title, PostalCode, ReportsTo from employees;";
+                    String select = "select EmployeeID, FirstName, LastName, Title, " +
+                        "PostalCode, ReportsTo from employees;";
                     DataTable dt = new DataTable();
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = sentencia;
+
                     //Llenar el datatable
                     da.Fill(dt);
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
@@ -134,8 +134,9 @@ namespace Datos
             {
                 try
                 {
-                    String select = "insert into employees(LastName, FirstName, Title, PostalCode, ReportsTo, Notes) " +
-                        "values(@LastName, @FirstName, @Title, @PostalCode, @ReportsTo, '');";
+                    String select = "insert into employees(LastName, FirstName, Title, PostalCode, " +
+                        "ReportsTo, Notes) values(@LastName, @FirstName, @Title, " +
+                        "@PostalCode, @ReportsTo, '');";
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
@@ -176,9 +177,10 @@ namespace Datos
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     sentencia.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
                     sentencia.Parameters.AddWithValue("@LastName", employee.LastName);
-                    sentencia.Parameters.AddWithValue("@@FirstName", employee.FirstName); 
+                    sentencia.Parameters.AddWithValue("@@FirstName", employee.FirstName);
                     sentencia.Parameters.AddWithValue("@Title", employee.Title);
                     sentencia.Parameters.AddWithValue("@PostalCode", employee.PostalCode);
                     sentencia.Parameters.AddWithValue("@ReportsTo", employee.ReportsTo);
@@ -211,7 +213,9 @@ namespace Datos
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     sentencia.Parameters.AddWithValue("@EmployeeID", id);
+
                     //Ejercutar el comando 
                     int filasAfectadas = Convert.ToInt32(sentencia.ExecuteNonQuery());
                     return filasAfectadas;

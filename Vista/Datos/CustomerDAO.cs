@@ -1,19 +1,17 @@
-﻿using Modelos;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelos;
 
 namespace Datos
 {
     public class CustomerDAO
     {
-
-
-        public List<Customer> GetAllCustomers()
+        public List<Customer> obtenerCustomers()
         {
             List<Customer> lista = new List<Customer>();
             if (Conexion.Conectar())
@@ -21,15 +19,16 @@ namespace Datos
                 try
                 {
                     //Crear la sentencia select
-                    String select = @"SELECT CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax 
-                     FROM Customers";
-
+                    String select = "SELECT CustomerID, CompanyName, ContactName, ContactTitle, " +
+                        "Address, City, Region, PostalCode, Country, Phone, Fax FROM Customers;";
                     DataTable dt = new DataTable();
                     MySqlCommand sentencia = new MySqlCommand();
                     sentencia.CommandText = select;
                     sentencia.Connection = Conexion.conexion;
+
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = sentencia;
+
                     //Llenar el datatable
                     da.Fill(dt);
                     //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
@@ -50,8 +49,6 @@ namespace Datos
 
                         lista.Add(customer);
                     }
-
-
                     return lista;
                 }
                 finally
@@ -63,9 +60,6 @@ namespace Datos
             {
                 return null;
             }
-
         }
-
-
     }
 }

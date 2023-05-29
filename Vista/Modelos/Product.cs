@@ -19,7 +19,6 @@ namespace Modelos
         public int ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
 
-
         public Product(int ProductID, string ProductName, int SupplierID, string CompanyName,
            int CategoryID, string CategoryName, double UnitPrice, int UnitsInStock, int ReorderLevel, bool Discontinued)
         {
