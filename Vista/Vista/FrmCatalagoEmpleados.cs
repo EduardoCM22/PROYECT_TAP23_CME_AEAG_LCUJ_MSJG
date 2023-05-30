@@ -26,9 +26,12 @@ namespace Vista
             dgvEmpleados.AllowUserToAddRows = false;
             dgvEmpleados.AllowUserToDeleteRows = false;
             dgvEmpleados.EditMode = DataGridViewEditMode.EditProgrammatically;
-
             //Activar la selección por fila en lugar de columna
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dgvEmpleados.Columns["FirstName"].HeaderText = "Nombre";
+            dgvEmpleados.Columns["LastName"].HeaderText = "Apellidos";
+            dgvEmpleados.Columns["Title"].HeaderText = "Puesto";
 
             dgvEmpleados.Columns["EmployeeID"].Visible = false;
             dgvEmpleados.Columns["PostalCode"].Visible = false;

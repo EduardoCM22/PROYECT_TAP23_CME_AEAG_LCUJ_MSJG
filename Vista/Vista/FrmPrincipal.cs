@@ -13,9 +13,13 @@ namespace Vista
 {
     public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
     {
+        private Employee emp;
+
         public FrmPrincipal(Employee empleado)
         {
             InitializeComponent();
+
+            emp = empleado;
 
             if (empleado.Title.Equals("Vice President, Sales"))
             {
@@ -29,6 +33,7 @@ namespace Vista
             {
                 //Ventas
                 btnProductos.Visible = false;
+                btnAdquisicion.Visible = false;
                 btnCategorias.Visible = false;
                 btnEmpleados.Visible = false;
                 btnCompras.Visible = false;
@@ -56,6 +61,18 @@ namespace Vista
         {
             FrmCatalagoEmpleados empleados = new FrmCatalagoEmpleados();
             empleados.ShowDialog();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            FrmCatalogoVentas ventas = new FrmCatalogoVentas(emp);
+            ventas.ShowDialog();
+        }
+
+        private void btnAdquisicion_Click(object sender, EventArgs e)
+        {
+            FrmAdquirir adquisicion = new FrmAdquirir();
+            adquisicion.ShowDialog();
         }
     }
 }

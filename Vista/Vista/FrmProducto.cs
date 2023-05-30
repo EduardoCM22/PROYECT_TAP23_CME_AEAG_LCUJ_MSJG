@@ -14,10 +14,10 @@ namespace Vista
 {
     public partial class FrmProducto : MetroFramework.Forms.MetroForm
     {
-
-        private int proId;
         private List<Category> categorias = new CategoryDAO().obtenerCategorias();
         private List<Supplier> companias = new SupplierDAO().obtenerCompanias();
+        private int proId;
+        private int reoLevel;
 
         public FrmProducto()
         {
@@ -27,13 +27,13 @@ namespace Vista
             cmbCategoria.DisplayMember = "CategoryName";
             cmbCategoria.ValueMember = "CategoryId";
             cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cmbCompania.DataSource = companias;
             cmbCompania.DisplayMember = "CompanyName";
             cmbCompania.ValueMember = "SupplierId";
             cmbCompania.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        int reoLevel;
         public void establecerValores(int pId, string pName, int sId, int cId,
             double uPrice, int uStock, int rLevel, bool discont)
         {
@@ -57,6 +57,7 @@ namespace Vista
             int contFilasModificadas = 0;
             int unidadesStock = 0;
             double precioUnidad = 0.0;
+
             if (!double.TryParse(txtPrecio.Text, out precioUnidad))
             {
                 MessageBox.Show("Precio unitario no valido. Debe ser un número.", "Ingreso Datos", 

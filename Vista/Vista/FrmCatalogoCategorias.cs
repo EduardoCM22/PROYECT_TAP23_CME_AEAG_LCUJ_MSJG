@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,50 +28,79 @@ namespace Vista
             dgvCategorias.AllowUserToAddRows = false;
             dgvCategorias.AllowUserToDeleteRows = false;
             dgvCategorias.EditMode = DataGridViewEditMode.EditProgrammatically;
-
             //Activar la selección por fila en lugar de columna
             dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //dgvCategorias.Columns["CategoryId"].Visible = false;
+            dgvCategorias.Columns["CategoryName"].HeaderText = "Categoria";
+            dgvCategorias.Columns["Description"].HeaderText = "Descripción";
+
+            dgvCategorias.Columns["CategoryId"].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmCategoria cat = new FrmCategoria(0,"","");
-            cat.Show();
+            FrmCategoria agregar = new FrmCategoria();
+
+            agregar.establecerValores(0, "", "");
+            agregar.ShowDialog();
+
+            categorias = new CategoryDAO().obtenerCategorias();
+            dgvCategorias.DataSource = categorias;
+            this.Show();
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            FrmCategoria cat;
+            FrmCategoria editar = new FrmCategoria();
             DataGridViewRow filaSeleccionada = dgvCategorias.SelectedRows[0];
 
-            int id = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
-            string categorieName = filaSeleccionada.Cells[1].Value.ToString();
-            string des = filaSeleccionada.Cells[2].Value.ToString();
+            int categoryId = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+            String categorieName = filaSeleccionada.Cells[1].Value.ToString();
+            String description = filaSeleccionada.Cells[2].Value.ToString();
 
-            cat = new FrmCategoria(id, categorieName, des);
-            cat.Show();
+            editar.establecerValores(categoryId, categorieName, description);
+            editar.ShowDialog();
+
+            categorias = new CategoryDAO().obtenerCategorias();
+            dgvCategorias.DataSource = categorias;
+            this.Show();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmCategoria cat;
             DataGridViewRow filaSeleccionada = dgvCategorias.SelectedRows[0];
-            int id = 0;
-            id = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
 
-            if (id > 0)
+            int categoryId = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+            String categoryName= filaSeleccionada.Cells[1].Value.ToString();
+
+            string message = "¿Está seguro que desea eliminar la categoría " + categoryName+ "?";
+            string caption = "Eliminación Categoría.";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                string categorieName = filaSeleccionada.Cells[1].Value.ToString();
-                string des = filaSeleccionada.Cells[2].Value.ToString();
-                new Datos.CategoryDAO().eliminar(new Category(id, categorieName, des));
+                int c = new CategoryDAO().Eliminar(categoryId);
+                if (c == 1451)
+                {
+                    MessageBox.Show("No se puede eliminar por que tiene relación con otros elementos.",
+                        caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (c == 0)
+                {
+                    MessageBox.Show("No se pudo realizar la operación.", caption, MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Eliminado exitosamente.", caption, MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
             }
-            else
-            {
-                MessageBox.Show("Selecciona una categoría a eliminar");
-            }
-            
+            categorias = new CategoryDAO().obtenerCategorias();
+            dgvCategorias.DataSource = categorias;
+            this.Show();
         }
     }
 }

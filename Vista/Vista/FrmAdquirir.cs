@@ -16,12 +16,12 @@ namespace Vista
     {
 
         private List<Product> productos = new ProductDAO().obtenerAdquirir();
-        ProductDAO p = new ProductDAO();
-        int contFilasModificadas;
+        private ProductDAO p = new ProductDAO();
 
         public FrmAdquirir()
         {
             InitializeComponent();
+
             cmbProducto.DataSource = productos;
             cmbProducto.DisplayMember = "ProductName";
             cmbProducto.ValueMember = "ProductId";
@@ -31,6 +31,7 @@ namespace Vista
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Product product = (Product)cmbProducto.SelectedItem;
+            int contFilasModificadas;
             int unidades;
             if (!int.TryParse(txtCantidad.Text, out unidades))
             {

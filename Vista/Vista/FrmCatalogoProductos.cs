@@ -21,6 +21,7 @@ namespace Vista
 
             Conexion con = new Conexion();
             /*MessageBox.Show(con.Conectar()+"");*/
+
             productos = new ProductDAO().obtenerProductos();
 
             dgvProductos.DataSource = productos;
@@ -33,6 +34,15 @@ namespace Vista
             //Activar la selección por fila en lugar de columna
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            dgvProductos.Columns["ProductName"].HeaderText = "Producto";
+            dgvProductos.Columns["CompanyName"].HeaderText = "Compañia";
+            dgvProductos.Columns["CategoryName"].HeaderText = "Categoría";
+            dgvProductos.Columns["UnitPrice"].HeaderText = "Precio Unidad";
+            dgvProductos.Columns["UnitsInStock"].HeaderText = "Unidades Stock";
+            dgvProductos.Columns["ReorderLevel"].HeaderText = "Nivel Reorden";
+            dgvProductos.Columns["Discontinued"].HeaderText = "Descontinuado";
+
+            dgvProductos.Columns["ProductID"].Visible = false;
             dgvProductos.Columns["SupplierId"].Visible = false;
             dgvProductos.Columns["CategoryId"].Visible = false;
         }
@@ -113,16 +123,6 @@ namespace Vista
         {
             FrmReorden reorden = new FrmReorden();
             reorden.ShowDialog();
-        }
-
-        private void btnAdquirir_Click(object sender, EventArgs e)
-        {
-            FrmAdquirir adquirir = new FrmAdquirir();
-            adquirir.ShowDialog();
-
-            productos = new ProductDAO().obtenerProductos();
-            dgvProductos.DataSource = productos;
-            this.Show();
         }
     }
 }

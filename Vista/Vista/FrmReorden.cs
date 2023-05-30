@@ -34,6 +34,10 @@ namespace Vista
             //Activar la selección por fila en lugar de columna
             dgvReorden.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            dgvReorden.Columns["ProductName"].HeaderText = "Producto";
+            dgvReorden.Columns["CompanyName"].HeaderText = "Compañia";
+            dgvReorden.Columns["ReorderLevel"].HeaderText = "Nivel Reorden";
+
             dgvReorden.Columns["SupplierId"].Visible = false;
             dgvReorden.Columns["CategoryId"].Visible = false;
             dgvReorden.Columns["ProductId"].Visible = false;

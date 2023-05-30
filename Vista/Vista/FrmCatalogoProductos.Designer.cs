@@ -31,7 +31,6 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new MetroFramework.Controls.MetroButton();
             this.btnEditar = new MetroFramework.Controls.MetroButton();
-            this.btnAdquirir = new MetroFramework.Controls.MetroButton();
             this.btnEliminar = new MetroFramework.Controls.MetroButton();
             this.btnConsultar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -49,7 +48,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(98, 473);
+            this.btnAgregar.Location = new System.Drawing.Point(178, 476);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 30);
             this.btnAgregar.TabIndex = 1;
@@ -58,25 +57,16 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(214, 473);
+            this.btnEditar.Location = new System.Drawing.Point(294, 476);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 30);
             this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnAdquirir
-            // 
-            this.btnAdquirir.Location = new System.Drawing.Point(566, 473);
-            this.btnAdquirir.Name = "btnAdquirir";
-            this.btnAdquirir.Size = new System.Drawing.Size(150, 30);
-            this.btnAdquirir.TabIndex = 3;
-            this.btnAdquirir.Text = "Adquirir Inventario";
-            this.btnAdquirir.Click += new System.EventHandler(this.btnAdquirir_Click);
-            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(330, 473);
+            this.btnEliminar.Location = new System.Drawing.Point(410, 476);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 30);
             this.btnEliminar.TabIndex = 4;
@@ -85,7 +75,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(448, 473);
+            this.btnConsultar.Location = new System.Drawing.Point(528, 476);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 30);
             this.btnConsultar.TabIndex = 5;
@@ -98,7 +88,6 @@
             this.ClientSize = new System.Drawing.Size(800, 550);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnAdquirir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvProductos);
@@ -116,7 +105,6 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private MetroFramework.Controls.MetroButton btnAgregar;
         private MetroFramework.Controls.MetroButton btnEditar;
-        private MetroFramework.Controls.MetroButton btnAdquirir;
         private MetroFramework.Controls.MetroButton btnEliminar;
         private MetroFramework.Controls.MetroButton btnConsultar;
     }

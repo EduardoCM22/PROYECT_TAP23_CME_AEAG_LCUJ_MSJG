@@ -27,15 +27,25 @@ namespace Vista
 
             if (employee != null)
             {
-                MessageBox.Show("Bienvenido " + employee.FullName, "Inicio Sesión", 
+                MessageBox.Show("Bienvenido " + employee.FullName, "Inicio Sesión",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmPrincipal principal = new FrmPrincipal(employee);
+                this.Visible = false;
                 principal.ShowDialog();
+                this.Dispose();
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Inicio Sesión", 
+                if (!Conexion.Conectar())
+                {
+                    FrmConexion conexion = new FrmConexion();
+                    conexion.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrectos", "Inicio Sesión",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
     }

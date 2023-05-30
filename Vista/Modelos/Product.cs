@@ -48,5 +48,13 @@ namespace Modelos
             this.UnitsInStock = UnitsInStock;
             this.ReorderLevel = ReorderLevel;
         }
+
+        public Product(int ProductID, String ProductName, double UnitPrice, int UnitsInStock)
+        {
+            this.ProductID = ProductID;
+            this.ProductName = ProductName;
+            this.UnitPrice = UnitPrice;
+            this.UnitsInStock = UnitsInStock;
+        }
     }
 }
