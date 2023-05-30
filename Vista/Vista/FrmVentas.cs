@@ -70,6 +70,7 @@ namespace Vista
             {
                 if (unidades != 0)
                 {
+                   
                     foreach (Product product in products)
                     {
                         if (int.Parse(cmbProductos.SelectedValue.ToString()) == product.ProductID)
@@ -77,6 +78,12 @@ namespace Vista
                             prod = product;
                             break;
                         }
+                    }
+                    if (unidades > prod.UnitsInStock)
+                    {
+                        MessageBox.Show("Unidades no validas. Las unidades son mayores a las que hay disponibles.", "Ingreso Datos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
 
                     //OrderDAO ordVerif = new OrderDAO();
@@ -93,6 +100,7 @@ namespace Vista
 
                     if (dgvVentas.RowCount > 0)
                     {
+                        
                         bool editado = false;
                         foreach (DataGridViewRow row in dgvVentas.Rows)
                         {
