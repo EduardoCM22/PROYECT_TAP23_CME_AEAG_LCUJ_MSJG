@@ -49,6 +49,9 @@ namespace Vista
             dgvVentas.Columns.Add("Units", "Unidades");
             dgvVentas.Columns.Add("SubTotal", "SubTotal");
 
+            dgvVentas.AutoResizeColumns();
+            dgvVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             this.Text = "Ventas-" + employee.FullName;
             emp = employee;
 

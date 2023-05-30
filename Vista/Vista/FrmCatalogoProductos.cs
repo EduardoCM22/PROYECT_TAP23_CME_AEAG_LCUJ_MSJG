@@ -45,6 +45,9 @@ namespace Vista
             dgvProductos.Columns["ProductID"].Visible = false;
             dgvProductos.Columns["SupplierId"].Visible = false;
             dgvProductos.Columns["CategoryId"].Visible = false;
+
+            dgvProductos.AutoResizeColumns();
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -45,6 +45,9 @@ namespace Vista
             dgvReorden.Columns["UnitPrice"].Visible = false;
             dgvReorden.Columns["Discontinued"].Visible = false;
             dgvReorden.Columns["CategoryName"].Visible = false;
+
+            dgvReorden.AutoResizeColumns();
+            dgvReorden.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 }

@@ -40,6 +40,9 @@ namespace Vista
             dgvVentas.Columns["OrderID"].Visible = false;
             dgvVentas.Columns["EmployeeId"].Visible = false;
             dgvVentas.Columns["CustomerId"].Visible = false;
+
+            dgvVentas.AutoResizeColumns();
+            dgvVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -35,6 +35,9 @@ namespace Vista
             dgvCategorias.Columns["Description"].HeaderText = "Descripción";
 
             dgvCategorias.Columns["CategoryId"].Visible = false;
+
+            dgvCategorias.AutoResizeColumns();
+            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
