@@ -43,6 +43,16 @@ namespace Vista
                 cmbPuesto.SelectedItem = cboPuesto;
                 txtPostal.Text = cPostal;
                 cmbReporta.SelectedValue = cboReporta;
+
+                List<Employee> empleadosExcluidos = empleados.Where
+                    (emp => emp.EmployeeID != empId).ToList();
+
+                cmbReporta.DataSource = empleadosExcluidos;
+                cmbReporta.DisplayMember = "FullName";
+                cmbReporta.ValueMember = "EmployeeID";
+                cmbReporta.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cmbReporta.SelectedValue = cboReporta;
             }
         }
 
