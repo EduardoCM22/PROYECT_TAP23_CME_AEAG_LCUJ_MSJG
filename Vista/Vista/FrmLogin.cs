@@ -20,25 +20,39 @@ namespace Vista
             InitializeComponent();
         }
 
-        private void btnIniciar_Click(object sender, EventArgs e)
+        private void btnIniciar_Click_1(object sender, EventArgs e)
         {
             EmployeeDAO employeeDAO = new EmployeeDAO();
             Employee employee = employeeDAO.login(txtUsuario.Text, txtContrasenia.Text);
 
             if (employee != null)
             {
-                MessageBox.Show("Bienvenido " + employee.FullName, "Inicio Sesión", 
+                MessageBox.Show("Bienvenido " + employee.FullName, "Inicio Sesión",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmPrincipal principal = new FrmPrincipal(employee);
-                this.Visible = false;
+                this.Hide();
                 principal.ShowDialog();
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Inicio Sesión", 
+                if (!Conexion.Conectar())
+                {
+                    FrmConexion conexion = new FrmConexion();
+                    conexion.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrectos", "Inicio Sesión",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
+        }
+
+        private void btnCambio_Click(object sender, EventArgs e)
+        {
+            FrmConexion conexion = new FrmConexion();
+            conexion.ShowDialog();
         }
     }
 }

@@ -37,6 +37,9 @@ namespace Vista
             dgvEmpleados.Columns["PostalCode"].Visible = false;
             dgvEmpleados.Columns["ReportsTo"].Visible = false;
             dgvEmpleados.Columns["FullName"].Visible = false;
+
+            dgvEmpleados.AutoResizeColumns();
+            dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
