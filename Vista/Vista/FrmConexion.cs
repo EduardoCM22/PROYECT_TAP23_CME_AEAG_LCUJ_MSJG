@@ -48,5 +48,10 @@ namespace Vista
                 MessageBox.Show($"Error al intentar conectar: {ex.Message}");
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

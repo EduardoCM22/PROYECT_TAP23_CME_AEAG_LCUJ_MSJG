@@ -15,8 +15,10 @@ namespace Vista
 {
     public partial class FrmCompras : MetroFramework.Forms.MetroForm
     {
+        List<Product> prod;
         public FrmCompras(List<Product> productos)
         {
+            prod = productos;
             InitializeComponent();
 
             Conexion con = new Conexion();
@@ -42,13 +44,18 @@ namespace Vista
             dgvProductos.Columns["UnitsInStock"].Visible = false;
             dgvProductos.Columns["Discontinued"].Visible = false;
 
+
             dgvProductos.AutoResizeColumns();
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dgvProductos.Rows.Clear();
+            ProductDAO proDAO = new ProductDAO();
+            int filasModificadas = proDAO.actualizarUnidadesOder(prod);
+            FrmPrincipal.prod = new List<Product>();
+            dgvProductos.DataSource = FrmPrincipal.prod;
+            prod = FrmPrincipal.prod;
         }
     }
 }

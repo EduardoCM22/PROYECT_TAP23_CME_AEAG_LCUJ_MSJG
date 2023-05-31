@@ -17,7 +17,7 @@ namespace Vista
     public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
     {
         private Employee emp;
-        public List<Product> prod;
+        static public List<Product> prod = new List<Product>();
         private CancellationTokenSource cancellationTokenSource;
 
         
@@ -26,17 +26,19 @@ namespace Vista
             InitializeComponent();
 
             emp = empleado;
-            prod = null;
             cancellationTokenSource = new CancellationTokenSource();
 
             if (empleado.Title.Equals("Vice President, Sales"))
             {
                 //Acceso a todo
+                List<Product> products = new ProductDAO().consultarSugerenciasGuardadas();
+                prod = products;
             }
             else if (empleado.Title.Equals("Sales Manager"))
             {
                 //Todo excepto Empleados, Notificacion para productos agotados
                 btnEmpleados.Visible = false;
+                Task.Run(() => SatartTask(cancellationTokenSource.Token));
             }
             else if (empleado.Title.Equals("Sales Representative"))
             {
@@ -62,11 +64,6 @@ namespace Vista
                 // Verificar las unidades en stock de los productos que se están quedando sin stock de forma asíncrona
                 ProductDAO productsDAO = new ProductDAO();
                 List<Product> productsLowStock = await productsDAO.consultarProductosPorPedir();
-
-                foreach (Product product in productsLowStock)
-                {
-                    product.ReorderLevel = (product.ReorderLevel - product.UnitsInStock) + (product.ReorderLevel / 2);
-                }
 
                 if (productsLowStock.Count > 0)
                 {

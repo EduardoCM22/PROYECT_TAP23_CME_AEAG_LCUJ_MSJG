@@ -33,7 +33,6 @@
             this.lblContrasenia = new MetroFramework.Controls.MetroLabel();
             this.txtContrasenia = new MetroFramework.Controls.MetroTextBox();
             this.btnIniciar = new MetroFramework.Controls.MetroButton();
-            this.btnCambio = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -79,20 +78,10 @@
             this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click_1);
             // 
-            // btnCambio
-            // 
-            this.btnCambio.Location = new System.Drawing.Point(243, 288);
-            this.btnCambio.Name = "btnCambio";
-            this.btnCambio.Size = new System.Drawing.Size(100, 30);
-            this.btnCambio.TabIndex = 5;
-            this.btnCambio.Text = "Cambiar Host";
-            this.btnCambio.Click += new System.EventHandler(this.btnCambio_Click);
-            // 
             // FrmLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(550, 350);
-            this.Controls.Add(this.btnCambio);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtContrasenia);
             this.Controls.Add(this.lblContrasenia);
@@ -113,7 +102,6 @@
         private MetroFramework.Controls.MetroLabel lblContrasenia;
         private MetroFramework.Controls.MetroTextBox txtContrasenia;
         private MetroFramework.Controls.MetroButton btnIniciar;
-        private MetroFramework.Controls.MetroButton btnCambio;
     }
 }
 

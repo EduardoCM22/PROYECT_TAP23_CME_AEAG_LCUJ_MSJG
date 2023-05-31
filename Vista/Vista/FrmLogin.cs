@@ -48,11 +48,5 @@ namespace Vista
                 }
             }
         }
-
-        private void btnCambio_Click(object sender, EventArgs e)
-        {
-            FrmConexion conexion = new FrmConexion();
-            conexion.ShowDialog();
-        }
     }
 }

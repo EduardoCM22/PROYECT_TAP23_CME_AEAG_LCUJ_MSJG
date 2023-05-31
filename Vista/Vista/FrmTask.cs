@@ -18,6 +18,7 @@ namespace Vista
 
         public FrmTask(List<Product> productos)
         {
+            prodList = productos;
             InitializeComponent();
 
             //Desactivar la adición, eliminación y edición el el gridview
@@ -43,13 +44,14 @@ namespace Vista
 
             dgvProductos.AutoResizeColumns();
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            prodList = productos;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+            FrmPrincipal.prod.AddRange(prodList);
+            ProductDAO productDAO = new ProductDAO();
+            productDAO.actualizarSugerenciaCompra(prodList);
+            this.Dispose();
         }
     }
 }
