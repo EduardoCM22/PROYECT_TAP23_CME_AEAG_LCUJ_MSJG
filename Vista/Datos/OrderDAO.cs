@@ -140,38 +140,5 @@ namespace Datos
                 return 0;
             }
         }
-
-        //public int verificar(int id, int unidades)
-        //{
-        //    //Conectarme
-        //    if (Conexion.Conectar())
-        //    {
-        //        try
-        //        {
-        //            //Crear la sentencia a ejecutar (INSERT)
-        //            String select = "select (UnitsInStock-@Units) from products " +
-        //                "where productid = @ProductID;";
-        //            MySqlCommand sentencia = new MySqlCommand();
-        //            sentencia.CommandText = select;
-        //            sentencia.Connection = Conexion.conexion;
-
-        //            sentencia.Parameters.AddWithValue("@ProductID", id);
-        //            sentencia.Parameters.AddWithValue("@Units", unidades);
-
-        //            //Ejercutar el comando 
-        //            int filasAfectadas = Convert.ToInt32(sentencia.ExecuteScalar());
-        //            return filasAfectadas;
-        //        }
-        //        finally
-        //        {
-        //            Conexion.Desconectar();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //Devolvemos un cero indicando que no se insertó nada
-        //        return -1;
-        //    }
-        //}
     }
 }

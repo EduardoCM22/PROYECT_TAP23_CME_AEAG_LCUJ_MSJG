@@ -89,18 +89,6 @@ namespace Vista
                         return;
                     }
 
-                    //OrderDAO ordVerif = new OrderDAO();
-                    //int verif = ordVerif.verificar(prod.ProductID, unidades);
-                    //if (verif >= 0)
-                    //{
-                    //    Console.WriteLine(verif.ToString());
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Unidades venta mayores a las unidades stock", "Ingreso Datos",
-                    //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //}
-
                     if (dgvVentas.RowCount > 0)
                     {
 
