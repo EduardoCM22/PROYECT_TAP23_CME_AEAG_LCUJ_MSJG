@@ -27,7 +27,8 @@ namespace Vista
             }
             else if (empleado.Title.Equals("Sales Manager"))
             {
-                //No menciona
+                //Todo excepto Empleados, Notificacion para productos agotados
+                btnEmpleados.Visible = false;
             }
             else if (empleado.Title.Equals("Sales Representative"))
             {

@@ -29,8 +29,8 @@ namespace Vista
         {
             InitializeComponent();
 
-            lblClave.Visible = false;
-            txtClave.Visible = false;
+            //lblClave.Visible = false;
+            //txtClave.Visible = false;
 
             //Desactivar la adición, eliminación y edición el el gridview
             dgvVentas.AllowUserToAddRows = false;
@@ -73,7 +73,7 @@ namespace Vista
             {
                 if (unidades != 0)
                 {
-                   
+
                     foreach (Product product in products)
                     {
                         if (int.Parse(cmbProductos.SelectedValue.ToString()) == product.ProductID)
@@ -103,7 +103,7 @@ namespace Vista
 
                     if (dgvVentas.RowCount > 0)
                     {
-                        
+
                         bool editado = false;
                         foreach (DataGridViewRow row in dgvVentas.Rows)
                         {
@@ -135,6 +135,7 @@ namespace Vista
                         total += double.Parse(row.Cells[5].Value.ToString());
                     }
                     lblCantidad.Text = total.ToString();
+                    txtClave.Text = string.Empty;
                 }
                 else
                 {
@@ -201,6 +202,13 @@ namespace Vista
             {
                 MessageBox.Show("Operación realizada con exito", "Actualizar Productos",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dgvVentas.Rows.Clear();
+                ordersDetails.Clear();
+                productsAct.Clear();
+                txtClave.Text = string.Empty;
+                txtUnidades.Text = string.Empty;
+                lblCantidad.Text = "0.00";
             }
             else
             {
@@ -230,6 +238,33 @@ namespace Vista
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int pid;
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (int.TryParse(txtClave.Text, out pid))
+                {
+                    foreach (Product product in products)
+                    {
+                        if (product.ProductID == pid)
+                        {
+                            cmbProductos.SelectedValue = pid;
+                            return;
+                        }
+                    }
+                    MessageBox.Show("Producto no encontrado.", "Selección Producto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.", "Selección Producto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }
