@@ -73,22 +73,24 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(241, 229);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(230, 30);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(162, 129);
+            this.metroLabel1.Location = new System.Drawing.Point(198, 129);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(73, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(37, 20);
             this.metroLabel1.TabIndex = 5;
-            this.metroLabel1.Text = "Local Host";
+            this.metroLabel1.Text = "Host";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(162, 180);
+            this.metroLabel2.Location = new System.Drawing.Point(179, 180);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(56, 20);
             this.metroLabel2.TabIndex = 6;
