@@ -92,6 +92,12 @@
     <Compile Include="FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompras.Designer.cs">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     <Compile Include="FrmReorden.Designer.cs">
       <DependentUpon>FrmReorden.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTask.Designer.cs">
+      <DependentUpon>FrmTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,9 @@
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompras.resx">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConexion.resx">
       <DependentUpon>FrmConexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReorden.resx">
       <DependentUpon>FrmReorden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTask.resx">
+      <DependentUpon>FrmTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>

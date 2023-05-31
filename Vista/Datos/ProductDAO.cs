@@ -389,5 +389,49 @@ namespace Datos
             }
         }
 
+        public async Task<List<Product>> consultarProductosPorPedir()
+        {
+            List<Product> lista = new List<Product>();
+            //Conectarme
+            if (Conexion.Conectar())
+            {
+                try
+                {
+                    //Crear la sentencia a ejecutar (UPDATE)
+                    String select = "SELECT * FROM PRODUCTS where UnitsInStock < ReorderLevel;";
+                    DataTable dt = new DataTable();
+                    MySqlCommand sentencia = new MySqlCommand();
+                    sentencia.CommandText = select;
+                    sentencia.Connection = Conexion.conexion;
+
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = sentencia;
+
+                    //Llenar el datatable
+                    da.Fill(dt);
+                    //Crear un objeto categoría por cada fila de la tabla y añadirlo a la lista
+                    foreach (DataRow fila in dt.Rows)
+                    {
+                        Product product = new Product(
+                            Convert.ToInt32(fila["ProductId"]),
+                            fila["ProductName"].ToString(),
+                            Convert.ToInt32(fila["UnitsInStock"]),
+                            Convert.ToInt32(fila["ReorderLevel"])
+                            );
+                        lista.Add(product);
+                    }
+                    return lista;
+                }
+                finally
+                {
+                    Conexion.Desconectar();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

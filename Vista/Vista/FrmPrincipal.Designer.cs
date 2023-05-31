@@ -83,6 +83,7 @@
             this.btnCompras.Size = new System.Drawing.Size(200, 60);
             this.btnCompras.TabIndex = 4;
             this.btnCompras.Text = "Compras";
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnAdquisicion
             // 
